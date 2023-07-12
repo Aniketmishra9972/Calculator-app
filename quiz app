@@ -1,0 +1,30 @@
+class Quiz:
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+
+    def run_quiz(self):
+        for question in self.questions:
+            print(question)
+            answer = input("Enter your answer: ")
+            if answer.lower() == self.questions[question].lower():
+                self.score += 1
+
+    def display_result(self):
+        total_questions = len(self.questions)
+        percentage = (self.score / total_questions) * 100
+        print("Quiz completed!")
+        print("Score: {}/{}".format(self.score, total_questions))
+        print("Percentage: {:.2f}%".format(percentage))
+
+
+# Example usage
+questions = {
+    "What is the capital of France?": "Paris",
+    "Who painted the Mona Lisa?": "Leonardo da Vinci",
+    "What is the largest planet in our solar system?": "Jupiter"
+}
+
+quiz = Quiz(questions)
+quiz.run_quiz()
+quiz.display_result()
